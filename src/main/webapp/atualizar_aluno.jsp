@@ -13,8 +13,8 @@
 <!-- o id deve ter o mesmo nome do atributo configurado no request -->
 <jsp:useBean id="aluno" class="lp2a4.modelo.AlunoPOJO" scope="request"></jsp:useBean>
 
-<form id="exibir_form" action="./controller">
-	<input type="hidden" name="acao" id="acao" value="<%=CommandEnum.NAVIGATE_UPDATE%>"/>
+<form id="update_form" action="./controller">
+	<input type="hidden" name="acao" id="acao" value="<%=CommandEnum.UPDATE%>"/>
 	<input type="hidden" name="matricula" id="matricula" value="<jsp:getProperty property="matricula" name="aluno"/>"/>
 	<table border="1">
 		<tr>
@@ -24,29 +24,29 @@
 		<tr>
 			<td>Nome : </td>
 			<td>
-				<jsp:getProperty property="nome" name="aluno"/>
+				<input class="edicao" type="text" id="nome" name="nome" value="<jsp:getProperty property="nome" name="aluno"/>"/>
 			</td>
 		</tr>
 		<tr>
 			<td>Endereço : </td>
 			<td>
-				<jsp:getProperty property="endereco" name="aluno"/>
+				<input class="edicao" type="text" id="endereco" name="endereco" value="<jsp:getProperty property="endereco" name="aluno"/>"/>
 			</td>
 		</tr>
 		<tr>
 			<td>Data Ingresso : </td>
 			<td>
-				<jsp:getProperty property="dataIngresso" name="aluno"/>
+				<input class="edicao" type="text" id="dataIngresso" name="dataIngresso" value="<jsp:getProperty property="dataIngresso" name="aluno"/>"/>
 			</td>
 		</tr>
 		<tr>
 			<td>Data Término : </td>
 			<td>
-				<jsp:getProperty property="dataConclusao" name="aluno"/>
+				<input class="edicao" type="text" id="dataConclusao" name="dataConclusao" value="<jsp:getProperty property="dataConclusao" name="aluno"/>"/>
 			</td>
 		</tr>
 	</table>
-	<input type="submit" value="Editar aluno!"/>
+	<input type="submit" value="Confirmar edição!"/>
 </form>
 <form id="delete_form" action="./controller">
 	<input type="hidden" name="acao" id="acao" value="<%=CommandEnum.DELETE%>"/>

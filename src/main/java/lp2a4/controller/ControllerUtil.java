@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lp2a4.AlunoUtil;
+import lp2a4.modelo.AlunoDAO;
 import lp2a4.modelo.AlunoPOJO;
 
 /**
@@ -25,5 +26,12 @@ public final class ControllerUtil {
 		aluno.setDataIngresso( LocalDate.parse( request.getParameter("dataIngresso") , AlunoUtil.DATE_FORMAT ) );
 		aluno.setDataConclusao( LocalDate.parse( request.getParameter("dataConclusao") , AlunoUtil.DATE_FORMAT ) );
 		return aluno;
+	}
+	
+	protected static void loadAlunoRequest(HttpServletRequest request) {
+		final String matricula = request.getParameter("matricula");
+		final AlunoDAO dao = AlunoDAO.getInstance();
+		final AlunoPOJO aluno = dao.retrieve(matricula);
+		request.setAttribute("aluno", aluno);
 	}
 }

@@ -50,6 +50,7 @@ public interface Command {
 		case CREATE : comando = new CreateCommand(); break;
 		case RETRIEVE : comando = new RetrieveCommand(); break;
 		case UPDATE : comando = new UpdateCommand(); break;
+		case NAVIGATE_UPDATE : comando = new NavigateUpdateCommand(); break;
 		case DELETE : comando = new DeleteCommand(); break;
 		default : comando = new UnknowedCommand(); break;
 		}

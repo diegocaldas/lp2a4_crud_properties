@@ -4,6 +4,7 @@ public enum CommandEnum {
 	CREATE ,
 	RETRIEVE ,
 	UPDATE,
+	NAVIGATE_UPDATE,
 	DELETE,
 	DESCONHECIDO;
 }
